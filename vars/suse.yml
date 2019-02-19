@@ -119,7 +119,3 @@ _package_repos:
     repo: "{{ opensuse_obs_cloud_repo_url }}"
     auto_import_keys: yes
     autorefresh: yes
-  - name: "nicolasbock:devel:languages:python"
-    repo: "{{ opensuse_obs_nicolasbock_python_repo_url }}"
-    auto_import_keys: yes
-    autorefresh: yes
