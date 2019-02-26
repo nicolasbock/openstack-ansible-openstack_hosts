@@ -56,13 +56,6 @@
   retries: 5
   delay: 2
 
-- name: Add requirement packages (repositories gpg keys, toolkits...)
-  zypper:
-    name: "{{ openstack_hosts_package_list | rejectattr('state','equalto','absent') | map(attribute='name') | list }}"
-    state: "{{ openstack_hosts_package_state }}"
-  when:
-    - (openstack_hosts_package_list | rejectattr('state','equalto','absent') | map(attribute='name') | list | length) > 0
-
 - name: Add/Remove/Update standard and user defined repositories
   zypper_repository:
     repo: "{{ repo.repo }}"
@@ -81,6 +74,13 @@
   until: _adding_repo  is success
   retries: 5
   delay: 2
+
+- name: Add requirement packages (repositories gpg keys, toolkits...)
+  zypper:
+    name: "{{ openstack_hosts_package_list | rejectattr('state','equalto','absent') | map(attribute='name') | list }}"
+    state: "{{ openstack_hosts_package_state }}"
+  when:
+    - (openstack_hosts_package_list | rejectattr('state','equalto','absent') | map(attribute='name') | list | length) > 0
 
 - name: Refresh repositories if necessary
   zypper_repository:
