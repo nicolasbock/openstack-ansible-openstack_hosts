@@ -100,3 +100,4 @@ _openstack_host_metal_distro_packages:
 _package_repos_keys: []
 _package_list: []
 _package_repos: []
+_package_vendors: []

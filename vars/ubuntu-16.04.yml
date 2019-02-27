@@ -94,4 +94,7 @@ _package_repos:
     state: present
     filename: "uca"
 
+## Not used but needed for various tasks
+_package_vendors: []
+
 _uca_repo: "deb {{ uca_apt_repo_url | default('http://ubuntu-cloud.archive.canonical.com/ubuntu') }} {{ ansible_lsb.codename }}-updates/queens main"

@@ -120,3 +120,6 @@ _package_repos:
     description: rdo-deps
     baseurl: "{{ openstack_hosts_rdo_deps_url }}"
     gpgcheck: no
+
+## Not used but needed for various tasks
+_package_vendors: []
